@@ -30,9 +30,14 @@ function getSurvey() {
             Number($("#a9").val()),
             Number($("#a10").val()),
         ]
-    }
-    surveyRatings.push(newFriend);
-    console.log(newFriend);
+    };
+    $.ajax({
+        url: "/api/friends",
+        data: newFriend,
+        method: "POST"
+    }).then(function(data){
+        console.log(data);
+    });
 };
 
 
@@ -40,13 +45,6 @@ function getSurvey() {
 function createFriend(event) {
     event.preventDefault();
     getSurvey();
-    $.ajax({
-        url: "/api/friends",
-        data: surveyRatings,
-        method: "POST"
-    }).then(function(data){
-        getFriends();
-    });
 };
 
 // DOM EVENTS
