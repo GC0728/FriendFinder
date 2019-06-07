@@ -5,8 +5,8 @@ var PORT = process.env.PORT || 3000;
 var path = require("path");
 
 // Body parsing and static middleware
-app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, "/app/public")));
 
 require("./app/routing/apiRoutes")(app);

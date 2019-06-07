@@ -1,7 +1,6 @@
 // GLOBAL VARIABLES
 var friendName = $("#nameInput");
 var friendPhoto = $("#pictureUpload");
-surveyRatings = [];
 
 // FUNCTION TO GET FRIENDS
 function getFriends() {
@@ -16,7 +15,7 @@ function getFriends() {
 // STORE USER DROPDOWN VALUES
 function getSurvey() {
     var newFriend = {
-        name: friendName.val().trim(),
+        name: friendName.val(),
         photo: friendPhoto.val(),
         scores: [
             Number($("#a1").val()),
@@ -38,6 +37,7 @@ function getSurvey() {
     }).then(function(data){
         console.log(data);
     });
+    $(".user-a").val("");
 };
 
 
@@ -47,6 +47,13 @@ function createFriend(event) {
     getSurvey();
 };
 
+// Variable to store route to Survey
+function takeSurvey(trigger) {
+    trigger.preventDefault();
+    window.location.href = "/survey";
+}; 
+
 // DOM EVENTS
 $(".btn").on("click", createFriend);
+$(".btn").on("click", takeSurvey);
 

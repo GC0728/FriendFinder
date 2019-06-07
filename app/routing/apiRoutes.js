@@ -1,24 +1,29 @@
 var friends = require("../data/friends");
 
+function matchMaker() {
+// GET THE ARRAY LENGTH OF FRIENDSTOMATCH
+    for (var i; i < friends.length; i++) {
 
+    }
+// LOOP THROUGH FRIENDSTOMATCH AND SUBTRACT CORRESPONDING ARRAY ELEMENTS
+
+
+};
 
 module.exports = function(app) {
     app.get("/api/friends", function(req, res) {
         res.json(friends);
-    });
+
+    }),
 
     app.post("/api/friends", function(req, res) {
         var newFriend = req.body;
         friends.push(newFriend);
-        console.log(friends);
         res.json(friends);
-    });
-    
-    app.delete("/api/friends/:id", function(req, res) {
-        friends = friends.filter(function(friend) {
-            return friend.id !== req.params.id;
-    });
-        res.end();
-    });
+    })
+// NEW USER INPUT DATA BEING SENT TO /API/FRIENDS ROUTE        
+
+//  ALL FRIENDS POSTED TO /API/FRIENDS ROUTE        
+
 };
 
