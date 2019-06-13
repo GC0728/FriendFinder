@@ -14,32 +14,31 @@ function getFriends() {
 
 // STORE USER DROPDOWN VALUES
 function getSurvey() {
-    var newFriend = {
+    var friend = {
         name: friendName.val(),
         photo: friendPhoto.val(),
         scores: [
-            Number($("#a1").val()),
-            Number($("#a2").val()),
-            Number($("#a3").val()),
-            Number($("#a4").val()),
-            Number($("#a5").val()),
-            Number($("#a6").val()),
-            Number($("#a7").val()),
-            Number($("#a8").val()),
-            Number($("#a9").val()),
-            Number($("#a10").val()),
+            $("#a1").val(),
+            $("#a2").val(),
+            $("#a3").val(),
+            $("#a4").val(),
+            $("#a5").val(),
+            $("#a6").val(),
+            $("#a7").val(),
+            $("#a8").val(),
+            $("#a9").val(),
+            $("#a10").val(),
         ]
     };
     $.ajax({
         url: "/api/friends",
-        data: newFriend,
+        data: friend,
         method: "POST"
     }).then(function(data){
         console.log(data);
     });
     $(".user-a").val("");
 };
-
 
 // CREATE USER RATINGS PROFILE
 function createFriend(event) {
