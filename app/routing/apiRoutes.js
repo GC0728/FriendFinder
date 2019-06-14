@@ -21,12 +21,17 @@ function findFriend(newFriend, friends) {
     var comparison = 0;
  //   console.log(newFriend.scores.length);
     for (var i = 0; i < newFriend.scores.length; i++) {
-        var diff = newFriend.scores[i];
-        comparison += diff;
-        console.log(diff);
+        for (var j = 0; j < friends.length - 1; j++) {
+            var diff = newFriend.scores[i] - friends[j].scores[i];
+            console.log(diff);
+            // comparison += diff;
+            // console.log("----------------------");
+            // console.log(comparison);
+   //     console.log(friends[i].scores);
     //    console.log(friends[i].scores.length);
+        }
     }
-    };
+};
 
 
 
