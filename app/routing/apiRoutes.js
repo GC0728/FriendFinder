@@ -13,22 +13,24 @@ function friend(req, res) {
     friends.push(newFriend);
     res.json(friends);
     findFriend(newFriend, friends)
- //   console.log(friends);
 };
 
 // Compare new survey object to survey array
 function findFriend(newFriend, friends) {
-    var comparison = 0;
- //   console.log(newFriend.scores.length);
+    var diff = 0;
+    var myBestFriend = {
+        name: "",
+        photo: "",
+        rating: 100
+    };
     for (var i = 0; i < newFriend.scores.length; i++) {
         for (var j = 0; j < friends.length - 1; j++) {
-            var diff = newFriend.scores[i] - friends[j].scores[i];
-            console.log(diff);
-            // comparison += diff;
-            // console.log("----------------------");
-            // console.log(comparison);
-   //     console.log(friends[i].scores);
-    //    console.log(friends[i].scores.length);
+            diff += Math.abs(friends[j].scores[i] - newFriend.scores[i]);
+            if (diff <= myBestFriend.rating) {
+                myBestFriend.name = friends[j].name,
+                myBestFriend.photo = friends[j].photo,
+                console.log(myBestFriend);
+            }
         }
     }
 };
@@ -43,7 +45,6 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
         friend(req, res);
-
     })
 // NEW USER INPUT DATA BEING SENT TO /API/FRIENDS ROUTE        
 
