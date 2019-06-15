@@ -52,7 +52,27 @@ function takeSurvey(trigger) {
     window.location.href = "/survey";
 }; 
 
+// Modal Events
+// var modal = $(".modal");
+// var trigger = $(".trigger");
+// var closeButton = $(".close-button");
+
+// function toggleModal() {
+//     $(".modal").toggle();
+//     console.log("click worked!")
+// }
+
+// function windowOnClick(event) {
+//     if (event.target === modal) {
+//         toggleModal();
+//     }
+// }
+
+
 // DOM EVENTS
 $(".btn").on("click", createFriend);
 $(".btn").on("click", takeSurvey);
-
+$("#findFriend").modal("toggle");
+// $(trigger).on("click", toggleModal);
+// $(closeButton).on("click", toggleModal);
+// $(window).on("click", windowOnClick);

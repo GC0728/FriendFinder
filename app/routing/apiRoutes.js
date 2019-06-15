@@ -29,13 +29,18 @@ function findFriend(newFriend, friends) {
             if (diff <= myBestFriend.rating) {
                 myBestFriend.name = friends[j].name,
                 myBestFriend.photo = friends[j].photo,
+       //         showBestFriend(myBestFriend);
                 console.log(myBestFriend);
             }
         }
     }
 };
 
-
+// Function to send myBestFriend name and photo to modal to display on HTML
+function showBestFriend(myBestFriend) {
+    $(".modal-title").text(myBestFriend.name);
+    $("#friendPhoto").attr("src", myBestFriend.photo);
+};
 
 module.exports = function(app) {
     app.get("/api/friends", function(req, res) {
