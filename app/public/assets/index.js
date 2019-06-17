@@ -62,4 +62,4 @@ function showMatch() {
 
 // DOM EVENTS
 $("#surveyForFriends").on("click", takeSurvey);
-$(".btn").on("click", createFriend);
+$("#matchFriend").on("click", createFriend);
