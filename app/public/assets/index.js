@@ -68,11 +68,17 @@ function takeSurvey(trigger) {
 //     }
 // }
 
+// Toggle Modal
+// function showMatch(event) {
+//     $("#findFriend").modal("toggle");
+// };
 
 // DOM EVENTS
 $(".btn").on("click", createFriend);
 $(".btn").on("click", takeSurvey);
-$("#findFriend").modal("toggle");
+// $(".btn").on("click", $("#findFriend").modal("toggle"));
+// $("#findFriend").modal("toggle");
+// $(".btn").on("click", showMatch);
 // $(trigger).on("click", toggleModal);
 // $(closeButton).on("click", toggleModal);
 // $(window).on("click", windowOnClick);

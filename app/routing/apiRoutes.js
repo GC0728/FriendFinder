@@ -23,23 +23,27 @@ function findFriend(newFriend, friends) {
         photo: "",
         rating: 100
     };
-    for (var i = 0; i < newFriend.scores.length; i++) {
-        for (var j = 0; j < friends.length - 1; j++) {
-            diff += Math.abs(friends[j].scores[i] - newFriend.scores[i]);
-            if (diff <= myBestFriend.rating) {
-                myBestFriend.name = friends[j].name,
-                myBestFriend.photo = friends[j].photo,
-       //         showBestFriend(myBestFriend);
-                console.log(myBestFriend);
-            }
+    for (var i = 0; i < friends.length -1; i++) {
+        diff = 0;
+        for (var j = 0; j < friends[i].scores.length; j++) {
+            diff += Math.abs(friends[i].scores[j] - newFriend.scores[j]);
         }
+        if (diff <= myBestFriend.rating) {
+            myBestFriend.name = friends[i].name,
+            myBestFriend.photo = friends[i].photo,
+           //     showBestFriend(myBestFriend.name, myBestFriend.photo);
+                // console.log(myBestFriend.name);
+                // console.log(myBestFriend.photo);
+                console.log(diff);
+            }
+
     }
 };
 
 // Function to send myBestFriend name and photo to modal to display on HTML
-function showBestFriend(myBestFriend) {
-    $(".modal-title").text(myBestFriend.name);
-    $("#friendPhoto").attr("src", myBestFriend.photo);
+function showBestFriend(name, photo) {
+    $("#foundFriendName").val(name);
+ //   $("#friendPhoto").attr("src", photo);
 };
 
 module.exports = function(app) {
