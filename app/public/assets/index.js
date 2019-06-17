@@ -36,6 +36,8 @@ function getSurvey() {
         method: "POST"
     }).then(function(data){
         console.log(data);
+        $("#foundFriendName").text(data.name);
+        $("#foundFriendPhoto").attr("src", data.photo);
     });
     $(".user-a").val("");
 };
@@ -44,6 +46,7 @@ function getSurvey() {
 function createFriend(event) {
     event.preventDefault();
     getSurvey();
+    showMatch();
 };
 
 // Variable to store route to Survey
@@ -69,13 +72,13 @@ function takeSurvey(trigger) {
 // }
 
 // Toggle Modal
-// function showMatch(event) {
-//     $("#findFriend").modal("toggle");
-// };
+function showMatch() {
+    $("#findFriend").modal("show");
+};
 
 // DOM EVENTS
 $(".btn").on("click", createFriend);
-$(".btn").on("click", takeSurvey);
+$("#friendSurvey").on("click", takeSurvey);
 // $(".btn").on("click", $("#findFriend").modal("toggle"));
 // $("#findFriend").modal("toggle");
 // $(".btn").on("click", showMatch);

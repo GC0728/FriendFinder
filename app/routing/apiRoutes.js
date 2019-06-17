@@ -11,8 +11,8 @@ function friend(req, res) {
     var numScores = newFriend.scores.map(numTheSurvey);
     newFriend.scores = numScores;
     friends.push(newFriend);
-    res.json(friends);
-    findFriend(newFriend, friends)
+    res.json(findFriend(newFriend, friends));
+    
 };
 
 // Compare new survey object to survey array
@@ -31,13 +31,11 @@ function findFriend(newFriend, friends) {
         if (diff <= myBestFriend.rating) {
             myBestFriend.name = friends[i].name,
             myBestFriend.photo = friends[i].photo,
-           //     showBestFriend(myBestFriend.name, myBestFriend.photo);
-                // console.log(myBestFriend.name);
-                // console.log(myBestFriend.photo);
-                console.log(diff);
+            myBestFriend.rating = diff
+            //console.log(myBestFriend.photo);
             }
-
     }
+    return myBestFriend;
 };
 
 // Function to send myBestFriend name and photo to modal to display on HTML
@@ -54,6 +52,7 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
         friend(req, res);
+        
     })
 // NEW USER INPUT DATA BEING SENT TO /API/FRIENDS ROUTE        
 
