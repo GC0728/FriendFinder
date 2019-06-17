@@ -55,33 +55,11 @@ function takeSurvey(trigger) {
     window.location.href = "/survey";
 }; 
 
-// Modal Events
-// var modal = $(".modal");
-// var trigger = $(".trigger");
-// var closeButton = $(".close-button");
-
-// function toggleModal() {
-//     $(".modal").toggle();
-//     console.log("click worked!")
-// }
-
-// function windowOnClick(event) {
-//     if (event.target === modal) {
-//         toggleModal();
-//     }
-// }
-
 // Toggle Modal
 function showMatch() {
     $("#findFriend").modal("show");
 };
 
 // DOM EVENTS
+$("#surveyForFriends").on("click", takeSurvey);
 $(".btn").on("click", createFriend);
-$("#friendSurvey").on("click", takeSurvey);
-// $(".btn").on("click", $("#findFriend").modal("toggle"));
-// $("#findFriend").modal("toggle");
-// $(".btn").on("click", showMatch);
-// $(trigger).on("click", toggleModal);
-// $(closeButton).on("click", toggleModal);
-// $(window).on("click", windowOnClick);

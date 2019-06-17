@@ -1,7 +1,7 @@
 var friends = [
     {
         name: "Friend1",
-        photo: "https://www.google.com",
+        photo: "https://cowleyfoundation.org/wordpress/wp-content/uploads/2017/11/friend-club-4.png",
         scores: [
             1,
             1,
