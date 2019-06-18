@@ -1,3 +1,4 @@
+
 // GLOBAL VARIABLES
 var friendName = $("#nameInput");
 var friendPhoto = $("#pictureUpload");

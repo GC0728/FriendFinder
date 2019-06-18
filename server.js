@@ -7,10 +7,10 @@ var path = require("path");
 // Body parsing and static middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
-app.use(express.static(path.join(__dirname, "/app/public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 // Start server
 app.listen(PORT, function() {
